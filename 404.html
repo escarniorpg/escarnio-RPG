@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Livro da Vida</title>
+  <script>
+    var repo = '';
+    var path = window.location.pathname.replace(repo, '') || '/';
+    var base = window.location.origin + repo;
+    window.location.replace(base + '/?r=' + encodeURIComponent(path));
+  </script>
+</head>
+<body></body>
+</html>
