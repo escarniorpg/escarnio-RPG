@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Livro da Vida</title>
+  <script>
+    (function () {
+      // ⚠️ Nome EXATO do repositório no GitHub Pages — respeite maiúsculas/minúsculas.
+      //    Se o seu repositório não for "escarnio-RPG", ajuste aqui.
+      var REPO = '/escarnio-RPG';
+
+      var loc  = window.location;
+      var path = loc.pathname || '/';
+
+      // Tira o prefixo do repositório, sobrando só a rota interna que deu 404.
+      var inner = path;
+      if (REPO && path.toLowerCase().indexOf(REPO.toLowerCase()) === 0) {
+        inner = path.slice(REPO.length);
+      }
+      inner = inner.replace(/^\/+/, '').replace(/\/+$/, ''); // normaliza barras
+
+      var search = loc.search || '';      // preserva ?invite=... (o app lê isso)
+      var base   = loc.origin + REPO + '/';
+
+      // O app é roteado por HASH (#/rota). Convertemos o caminho que deu 404 em hash,
+      // assim links/marcadores antigos no formato de caminho ainda abrem a rota certa.
+      //   /escarnio-RPG/ficha/abc   ->   /escarnio-RPG/?...#/ficha/abc
+      var target = base + search + (inner ? '#/' + inner : '#/');
+
+      loc.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    Redirecionando… Se nada acontecer,
+    <a href="/escarnio-RPG/">clique aqui para abrir o Livro da Vida</a>.
+  </noscript>
+</body>
+</html>
